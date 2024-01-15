@@ -1,20 +1,7 @@
 ---
-- name: Reboot Ubuntu Server
+- name: Hello World
   hosts: 10.0.0.13
-  become: yes  # Run tasks with sudo
-
   tasks:
-    - name: Reboot the server
-      command: shutdown -r now
-      async: 0
-      poll: 0
-      ignore_errors: true
-      register: reboot_result
-
-    - name: Wait for the server to come back
-      async_status:
-        jid: "{{ reboot_result.ansible_job_id | default(reboot_result.job_id) }}"
-      register: job_result
-      until: job_result.finished
-      retries: 30
-      delay: 10
+    - name: Print Hello World
+      debug:
+        msg: "Hello, World!"
