@@ -1,5 +1,5 @@
 - name: Install Python
-  hosts: your_target_machine
+  hosts: 10.0.0.13
   tasks:
     - name: Install Python
       apt:
