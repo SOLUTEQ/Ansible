@@ -1,7 +1,8 @@
 ---
-- name: Hello World
-  hosts: 10.0.0.13
+- name: Install Python
   tasks:
-    - name: Print Hello World
-      debug:
-        msg: "Hello, World!"
+    - name: Install Python
+      become: yes
+      apt:
+        name: python3
+        state: present
