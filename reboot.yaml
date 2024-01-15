@@ -1,8 +1,7 @@
----
 - name: Install Python
+  hosts: your_target_machine
   tasks:
     - name: Install Python
-      become: yes
       apt:
         name: python3
         state: present
