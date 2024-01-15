@@ -1,6 +1,6 @@
 ---
 - name: Reboot Ubuntu Server
-  hosts: 10.0.0.13
+  hosts: your_ubuntu_server
   become: yes  # Run tasks with sudo
 
   tasks:
@@ -13,7 +13,7 @@
 
     - name: Wait for the server to come back
       async_status:
-        jid: "{{ reboot_result.ansible_job_id }}"
+        jid: "{{ reboot_result.ansible_job_id | default(reboot_result.job_id) }}"
       register: job_result
       until: job_result.finished
       retries: 30
