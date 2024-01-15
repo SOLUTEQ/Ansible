@@ -1,6 +1,6 @@
 ---
 - name: Reboot Ubuntu Server
-  hosts: your_ubuntu_server
+  hosts: 10.0.0.13
   become: yes  # Run tasks with sudo
 
   tasks:
