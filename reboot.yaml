@@ -1,6 +1,7 @@
+---
 - name: Install Python
-become_method: sudo
-become_user: tony
+  become: yes
+  become_user: tony
   hosts: 10.0.0.13
   tasks:
     - name: Install Python
