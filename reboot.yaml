@@ -1,7 +1,7 @@
 ---
 - name: Install Python
   become: yes
-  become_user: tony
+  become_user: root
   hosts: 10.0.0.13
   tasks:
     - name: Install Python
