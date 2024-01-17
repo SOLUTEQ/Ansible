@@ -1,10 +1,12 @@
 ---
-- name: Install Python
-  become: yes
-  become_user: root
-  hosts: 10.0.0.13
+- hosts: HomeLab
+  become: true
   tasks:
-    - name: Install Python
-      apt:
-        name: python3
-        state: present
+    - name: Check if Python is installed
+      raw: command -v python || command -v python3 || echo 'No Python installed'
+      register: python_check
+
+    - name: Fail if Python is not installed
+      fail:
+        msg: "Python is not installed on the target server. Please install Python."
+      when: "python_check.stdout == 'No Python installed'"
