@@ -1,0 +1,8 @@
+---
+- name: Restart Ubuntu Server
+  hosts: all
+  become: yes  # Run tasks as a privileged user (sudo)
+
+  tasks:
+    - name: Restart the server
+      reboot:
